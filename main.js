@@ -12,14 +12,14 @@ const size = carouselImges[0].clientWidth;
 carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
 nextBtn.addEventListener('click',()=>{
-    if(counter >= carouselImges.length-1) return;
+    if(counter <= 0) return;
     carouselSlide.style.transition ="transform 0.3s ease-in-out";
     counter--;
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 });
 
 prevBtn.addEventListener('click',()=>{
-    if(counter <= 0) return;
+    if(counter >= carouselImges.length-1) return;
     carouselSlide.style.transition ="transform 0.3s ease-in-out";
     counter++;
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
@@ -38,3 +38,4 @@ carouselSlide.addEventListener('transitionend',()=>{
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     };
 }); 
+console.log(carouselImges.length);

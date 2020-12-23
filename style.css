@@ -5,17 +5,17 @@
 }
 
 .carousel-container {
-  width: 60%;
+  width: 500px;
   margin: auto;
   overflow: hidden;
   position: relative;
 }
 .carousel-slide {
-  width: 100%;
+  width: 3500px;
   display: flex;
 }
 .carousel-slide img {
-  width: 100%;
+  width: 500px;
   height: 300px;
 }
 
