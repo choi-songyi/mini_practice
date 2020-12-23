@@ -37,4 +37,4 @@ carouselSlide.addEventListener('transitionend',()=>{
         counter = carouselImges.length - counter;
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     };
-});
+}); 
