@@ -38,4 +38,17 @@ carouselSlide.addEventListener('transitionend',()=>{
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     };
 }); 
-console.log(carouselImges.length);
+
+
+// auto
+
+
+function autoSlide(){
+    if(counter < 7){
+        carouselSlide.style.transition ="transform 0.3s ease-in-out";
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        counter++;
+    }
+}
+
+setInterval(autoSlide,3000);
