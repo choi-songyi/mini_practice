@@ -44,11 +44,15 @@ carouselSlide.addEventListener('transitionend',()=>{
 
 
 function autoSlide(){
-    if(counter < 7){
-        carouselSlide.style.transition ="transform 0.3s ease-in-out";
+    if(counter<7){
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
         counter++;
     }
+    if(counter>=7){
+        counter = carouselImges.length - 6;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        
+    }
 }
 
-setInterval(autoSlide,3000);
+setInterval(autoSlide,2000);
