@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            height: 10000px;
+            background:linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+        }
+        h1{
+            color: #3b2f2f;
+            font-size: 4rem;
+            padding-top: 50px;
+            position: fixed;
+            top:10px;
+            left :40%;
+        }
+        .progress{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 5px;
+            background-color: blueviolet;
+        }
+        .bar{
+            width: 10%;
+            background-color: burlywood;
+            position: absolute;
+            top: 0;
+            height: 5px;
+        }
+        .progress_vertical{
+            width: 5px;
+            height: 150px;
+            position: fixed;
+            left: 10px;
+            top: 40%;
+            background-color: crimson;
+        }
+        .bar_vertical{
+            width: 5px;
+            height: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgb(80, 69, 71);
+        }
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+        let barVertical;
+
+        window.onload = function(){
+            bar = document.querySelector(".bar");
+            barVertical = document.querySelector(".bar_vertical");
+        }
+        window.addEventListener("scroll",function(e){
+            scrollTop = document.documentElement.scrollTop;
+            let per = Math.ceil(scrollTop/(document.body.scrollHeight-window.outerHeight) *100);
+            bar.style.width = per+"%";
+            barVertical.style.height = per+"%";
+        })
+    </script>
+</head>
+<body>
+    <div class="progress">
+        <span class="bar"></span>
+    </div>
+    <div class="progress_vertical">
+        <span class="bar_vertical"></span>
+    </div>
+    <h1>scroll</h1>
+</body>
+</html>

@@ -51,7 +51,6 @@ function autoSlide(){
     if(counter>=7){
         counter = carouselImges.length - 6;
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-        
     }
 }
 
