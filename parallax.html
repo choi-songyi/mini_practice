@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            position: relative;
+            background-color: rgb(180, 113, 113);
+            height: 500px;
+            width: 100%;
+            z-index: -1;
+        }
+        
+        .big-rose{
+            position: absolute;
+            top: 50px;
+            right: 1px;
+            width: 100px;
+        }
+        .small-rose{
+            position: absolute;
+            top: 270px;
+            left: 40%;
+            width: 100px;
+        }
+        .chair{
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+        }
+        div{
+            text-align: center;
+            padding: 100px;
+            background-color: rgb(9, 63, 63);
+            color:  rgb(180, 113, 113);
+        }
+        h1{
+            padding: 50px;
+        }
+        
+    </style>
+    <script>
+       
+        function parrlax(element,distance,speed){
+            const item = document.querySelector(element);
+            item.style.transform = `translateY(${distance*speed}px)`;   
+        }
+        function scroll(e){
+           const header=document.querySelector("header");
+           let y=document.documentElement.scrollTop;
+           parrlax(".big-rose",y,1.1);
+           parrlax(".small-rose",y,0.3);
+           parrlax(".chair",y,0.6);
+           header.style.opacity = `${1-0.001*y}`;
+        
+        }
+        window.addEventListener('scroll',scroll);
+       
+    </script>
+</head>
+<body>
+    <header>
+        <img class="big-rose" src="image/big-rose.png" alt="">
+        <img class="small-rose" src="image/small-rose.png" alt="">
+        <img class="chair" src="image/chair-intro.png" alt="">
+    </header>
+    <div>
+        <h1>hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas distinctio? Recusandae ducimus ad inventore doloribus illum, possimus repudiandae esse consequatur natus voluptate cupiditate praesentium explicabo magni tempore? Mollitia, perspiciatis!</p>
+    </div>
+</body>
+</html>
