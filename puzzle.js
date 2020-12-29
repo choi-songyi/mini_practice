@@ -15,7 +15,7 @@ const dragged ={
 let isPlaying = false;
 let timeInterval;
 let time = 0;
-
+// let n = 0; 
 
 // function
 function setGame(){
@@ -40,6 +40,7 @@ function setGame(){
 
 function createImageTiles(){
     const tempArray = [];
+    
     Array(tileCount).fill().forEach((_, i)=>{
         const li = document.createElement("li");
         li.setAttribute('data-index',i);
@@ -65,7 +66,7 @@ function checkStatus(){
     const unMatchedList = currentList.filter((child,index)=>{
        return Number(child.getAttribute("data-index")) !== index;
     })
-    console.log(unMatchedList)
+    
     if(unMatchedList.length === 0){
         gameText.style.display = 'block';
         isPlaying = false;
@@ -103,6 +104,7 @@ container.addEventListener('drop',e=>{
         dragged.index > droppendIndex ? obj.before(dragged.el) : obj.after(dragged.el);
         isLast ? originPlace.after(obj) : originPlace.before(obj);
     }
+    
     checkStatus();
     
 })
@@ -110,3 +112,8 @@ container.addEventListener('drop',e=>{
 startBtn.addEventListener('click',()=>{
     setGame();
 })
+
+//  이미지 랜덤 배정 설정하기
+// const a = document.getElementsByTagName('li');
+// n = Math.floor(Math.random()*10);
+// a.style.background = `url('http://placeimg.com/400/400/${n}')`
